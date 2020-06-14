@@ -1,1 +1,1 @@
-com.example.demo
+org.meowy.cqp.jcq
