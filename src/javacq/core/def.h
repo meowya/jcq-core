@@ -1,0 +1,52 @@
+//
+// Created by Sobte on 2019-12-05.
+//
+#pragma once
+
+#define JCQ_ID APP_ID
+#define JCQ_NAME "Java CoolQ Tool"
+
+#define JCQ_BUILD_NUMBER 1
+
+#define JCQ_TO_STR(x) #x
+
+#define _JCQ_ALPHA 1
+#define _JCQ_BETA 2
+#define _JCQ_GAMMA 3
+#define _JCQ_RC 5
+#define _JCQ_STABLE 10
+
+#define JCQ_VERSION_MAJOR 1
+#define JCQ_VERSION_MINOR 3
+#define JCQ_VERSION_PATCH 2
+#define JCQ_VERSION_PRE _JCQ_ALPHA
+#define JCQ_VERSION_PRE_VER 1
+
+#if JCQ_VERSION_PRE == _JCQ_ALPHA
+#define JCQ_VERSION_PRE_S "alpha"
+#elif JCQ_VERSION_PRE == _JCQ_BETA
+#define JCQ_VERSION_PRE_S "beta"
+#elif JCQ_VERSION_PRE == _JCQ_GAMMA
+#define JCQ_VERSION_PRE_S "gamma"
+#elif JCQ_VERSION_PRE == _JCQ_RC
+#define JCQ_VERSION_PRE_S "rc"
+#elif JCQ_VERSION_PRE == _JCQ_STABLE
+#define JCQ_VERSION_PRE_S "stable"
+#endif
+
+#define JCQ_VERSION_BASE \
+    JCQ_TO_STR(JCQ_VERSION_MAJOR) "." JCQ_TO_STR(JCQ_VERSION_MINOR) "." JCQ_TO_STR(JCQ_VERSION_PATCH)
+#if JCQ_VERSION_PRE < _JCQ_STABLE
+#define JCQ_VERSION JCQ_VERSION_BASE "-" JCQ_VERSION_PRE_S JCQ_TO_STR(JCQ_VERSION_PRE_VER)
+#else
+#define JCQ_VERSION JCQ_VERSION_BASE
+#endif
+
+#undef _JCQ_ALPHA
+#undef _JCQ_BETA
+#undef _JCQ_GAMMA
+#undef _JCQ_RC
+#undef _JCQ_STABLE
+
+#define JCQ_FULLNAME JCQ_NAME " v" JCQ_VERSION
+#define JCQ_USER_AGENT "JCQ/" JCQ_VERSION
