@@ -1,5 +1,5 @@
 BasedOnStyle: Google
-Standard: Cpp11
+Standard: c++17
 IndentWidth: 4
 ColumnLimit: 120
 AccessModifierOffset: -4
